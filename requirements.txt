@@ -2,3 +2,6 @@ djangorestframework
 python-decouple
 psycopg2-binary
 djangorestframework-simplejwt
+django-allauth
+requests 
+cryptography
