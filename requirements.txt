@@ -6,3 +6,5 @@ django-allauth
 requests 
 cryptography
 pillow
+django-filter
+pytils

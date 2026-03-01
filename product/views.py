@@ -1,21 +1,22 @@
-from django.shortcuts import render
-
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
 from .models import Product
 from .serializers import ProductSerializer
+from .filters import ProductFilter 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    
-   
     permission_classes = [IsAuthenticatedOrReadOnly]
-
-    def get_queryset(self):
-        queryset = Product.objects.all()
-        # Простая фильтрация по категорий
-        category = self.request.query_params.get('category')
-        if category:
-            queryset = queryset.filter(category_id=category)
-        return queryset
+    
+    filter_backends = [
+        DjangoFilterBackend, 
+        filters.SearchFilter, 
+        filters.OrderingFilter
+    ]
+    
+    filterset_class = ProductFilter
+    search_fields = ['title', 'description']
+    ordering_fields = ['price', 'created_at']

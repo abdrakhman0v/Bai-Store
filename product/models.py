@@ -4,6 +4,7 @@ class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     price = models.PositiveIntegerField(verbose_name="Базовая цена")
+    price_cash = models.PositiveIntegerField(verbose_name="Цена наличными", null=True, blank=True)
     category = models.ForeignKey('category.Category', on_delete=models.CASCADE, related_name='products', verbose_name="Категория")
     brand = models.ForeignKey('brands.Brand', on_delete=models.SET_NULL, null=True, blank=True, related_name='products', verbose_name="Бренд")
     image = models.ImageField(upload_to='products/%Y/%m/%d/', verbose_name="Главное фото")

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_filters',
 
     'allauth',
     'allauth.account',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
 
     'rest_framework',
-    'users'
+    'users',
     'brands',
     'product',
     'category'
