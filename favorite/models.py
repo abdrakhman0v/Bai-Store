@@ -2,8 +2,6 @@ from django.db import models
 from django.conf import settings
 from product.models import Product
 
-
-
 class Favorite(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE)
