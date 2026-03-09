@@ -7,7 +7,7 @@ class Product(models.Model):
     price_cash = models.PositiveIntegerField(verbose_name="Цена наличными", null=True, blank=True)
     category = models.ForeignKey('category.Category', on_delete=models.CASCADE, related_name='products', verbose_name="Категория")
     brand = models.ForeignKey('brands.Brand', on_delete=models.SET_NULL, null=True, blank=True, related_name='products', verbose_name="Бренд")
-    image = models.ImageField(upload_to='products/%Y/%m/%d/', verbose_name="Главное фото")
+    image = models.ImageField(upload_to='products/%Y/%m/%d/', verbose_name="Главное фото", blank=True)
 
     is_available = models.BooleanField(default=True, verbose_name="В наличии")
     is_hit = models.BooleanField(default=False, verbose_name="Хит продаж")
