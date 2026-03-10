@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'favorite',
     'product',
     'category',
-    'order'
+    'order',
+    'cart',
 ]
 
 SITE_ID = 1
